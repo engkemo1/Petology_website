@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petology_web/view/components/responsive.dart';
 import 'package:petology_web/view/pages/Auth/SignIn.dart';
 import 'package:petology_web/view/pages/Auth/SignUp.dart';
 
@@ -44,7 +46,16 @@ class AppBarCustom extends StatelessWidget {
           color: primaryColor,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
-            child: Row(
+            child: Responsive(mobile:Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SvgPicture.asset(
+                  'assets/image/logo.svg',
+                  width: 100,
+                ),
+                IconButton(onPressed: (){Scaffold.of(context).openDrawer();}, icon: Icon(Icons.more_vert))
+              ],
+            ) ,desktop:   Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SvgPicture.asset(
@@ -68,7 +79,8 @@ class AppBarCustom extends StatelessWidget {
                   ],
                 )
               ],
-            ),
+            ), )
+
           ),
         ));
   }
