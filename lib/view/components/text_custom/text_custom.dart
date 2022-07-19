@@ -6,11 +6,11 @@ import '../../../constants.dart';
 textCustom({
   required String text,
    double? fontSize = 14.0,
-  Color? color = kBlackColor,
+  Color? color = secondaryColor,
   FontWeight? fontWeight = FontWeight.normal,
-  TextDecoration decoration = TextDecoration.none,
+  TextDecoration? decoration = TextDecoration.none,
   int? maxLines = 1,
-  TextAlign textAlign = TextAlign.start,
+  TextAlign? textAlign = TextAlign.start,
 }) {
   return Text(
     text,
