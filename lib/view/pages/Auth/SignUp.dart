@@ -15,10 +15,10 @@ class SignUp extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 80),
-        child: AppBarCustom(),
-      ),
+        appBar: PreferredSize(
+          preferredSize: Size(screenSize.width, 80),
+          child: AppBarCustom(),
+        ),
       body: Stack(
         children: [
           Align(
@@ -78,10 +78,10 @@ class SignUp extends StatelessWidget {
                                       color: primaryColor),
                                   textAlign: TextAlign.center,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 30,
                                 ),
-                                SignWithFacebookGoogle(() {}, () {}),
+                                SignWithFacebookGoogle(() {}, () {}, context),
                                 SizedBox(
                                   height: 20,
                                 ),
@@ -153,8 +153,9 @@ class SignUp extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 20,)
-
+                                SizedBox(
+                                  height: 20,
+                                )
                               ],
                             ),
                           ],
@@ -185,32 +186,38 @@ class SignUp extends StatelessWidget {
   }
 }
 
-Widget SignWithFacebookGoogle(VoidCallback onTapF, VoidCallback onTapG) {
+Widget SignWithFacebookGoogle(
+  VoidCallback onTapF,
+  VoidCallback onTapG,
+  BuildContext context,
+) {
+  double width = MediaQuery.of(context).size.width;
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
       SizedBox(
-        width: 15,
-      ),
-      SignInButton(
-        Buttons.Facebook,
-        padding: EdgeInsets.only(left: 20, top: 17, bottom: 17),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+        width: width * 0.1,
+        child: SignInButton(
+          Buttons.Facebook,
+          padding: EdgeInsets.only(left: 20, top: 17, bottom: 17),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          text: "Facebook",
+          onPressed: () {},
         ),
-        text: "Facebook",
-        onPressed: () {},
       ),
       SizedBox(
-        width: 60,
-      ),
-      SignInButton(
-        Buttons.Google,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+        width: width * 0.1,
+        child: SignInButton(
+          Buttons.Google,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          padding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
+          text: "Google",
+          onPressed: () {},
         ),
-        padding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
-        text: "Google",
-        onPressed: () {},
       ),
     ],
   );
@@ -246,50 +253,58 @@ Widget divider() {
     ),
   );
 }
-Widget country(
-){
+
+Widget country() {
   final List<String> _dropdownValues = [
     "Egypt",
     "Egypt",
     "Egypt",
   ]; //The list of values we want on the dropdown
 
-  return  Container(
-      padding: EdgeInsets.only(left: 15,right: 15),
-      width: 400,
-      height: 50,
-
-      decoration: BoxDecoration(
-        color: const Color(0xffffffff),
-        borderRadius: BorderRadius.circular(26.0),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0x29000000),
-            offset: Offset(0, 3),
-            blurRadius: 6,
-          ),
-
-        ],
-      ),
-      child:DropdownButtonFormField(
-        items: _dropdownValues
-            .map((value) => DropdownMenuItem(
-          child: Text(value,style: TextStyle(   fontFamily: 'Arial',
-            fontSize: 12,
-            color: const Color(0x63492f24),
-            fontWeight: FontWeight.w700,),),
-          value: value,
-        ))
-            .toList(), onChanged: (String? value) {  },
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.only(left: 15),
+  return Container(
+    padding: EdgeInsets.only(left: 15, right: 15),
+    width: 400,
+    height: 50,
+    decoration: BoxDecoration(
+      color: const Color(0xffffffff),
+      borderRadius: BorderRadius.circular(26.0),
+      boxShadow: [
+        BoxShadow(
+          color: const Color(0x29000000),
+          offset: Offset(0, 3),
+          blurRadius: 6,
         ),
-        hint: Text('Country',style: TextStyle(   fontFamily: 'Arial',
+      ],
+    ),
+    child: DropdownButtonFormField(
+      items: _dropdownValues
+          .map((value) => DropdownMenuItem(
+                child: Text(
+                  value,
+                  style: TextStyle(
+                    fontFamily: 'Arial',
+                    fontSize: 12,
+                    color: const Color(0x63492f24),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                value: value,
+              ))
+          .toList(),
+      onChanged: (String? value) {},
+      decoration: const InputDecoration(
+        border: InputBorder.none,
+        contentPadding: EdgeInsets.only(left: 15),
+      ),
+      hint: Text(
+        'Country',
+        style: TextStyle(
+          fontFamily: 'Arial',
           fontSize: 12,
           color: const Color(0x63492f24),
-          fontWeight: FontWeight.w700,),),
-
+          fontWeight: FontWeight.w700,
+        ),
       ),
+    ),
   );
 }

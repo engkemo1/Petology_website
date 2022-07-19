@@ -6,15 +6,13 @@ import 'package:petology_web/view/pages/Auth/SignIn.dart';
 import 'package:petology_web/view/pages/Auth/SignUp.dart';
 
 import '../../../constants.dart';
+import '../../pages/Auth/about_us.dart';
 import '../component.dart';
 import '../text_custom/text_custom.dart';
 
 class AppBarCustom extends StatelessWidget {
   Widget _appBarButton(String title, VoidCallback onTap, BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size
-        .width;
+    var size = MediaQuery.of(context).size.width;
 
     return Padding(
         padding: EdgeInsets.only(left: size * 0.01, right: size * 0.01),
@@ -33,52 +31,63 @@ class AppBarCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size
-        .width;
+    var size = MediaQuery.of(context).size.width;
 
     return SafeArea(
         child: Container(
-          height: 90,
-          color: primaryColor,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50),
-            child: Row(
+      height: 90,
+      decoration: BoxDecoration(
+        color: primaryColor,
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [
+            gradientFirstColor,
+            gradientSecondColor,
+          ],
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 50),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SvgPicture.asset(
+              'assets/image/logo.svg',
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset(
-                  'assets/image/logo.svg',
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _appBarButton('About us', () {}, context),
-                    _appBarButton('Categories', () {}, context),
-                    _appBarButton('Services', () {}, context),
-                    _appBarButton('Request', () {}, context)
-                  ],
-                ),
-                Row(
-
-                  children: [
-                    signUpButton('Sign Up', () {navigator(context,SignUp());}, context),
-                    SizedBox(width: size * 0.01,),
-                    loginButton('Login', () {navigator(context,SignIn());}, context)
-                  ],
-                )
+                _appBarButton('About us', () {
+                  navigator(context, AboutUs());
+                }, context),
+                _appBarButton('Categories', () {}, context),
+                _appBarButton('Services', () {}, context),
+                _appBarButton('Request', () {}, context)
               ],
             ),
-          ),
-        ));
+            Row(
+              children: [
+                signUpButton('Sign Up', () {
+                  navigator(context, SignUp());
+                }, context),
+                SizedBox(
+                  width: size * 0.01,
+                ),
+                loginButton('Login', () {
+                  navigator(context, SignIn());
+                }, context)
+              ],
+            )
+          ],
+        ),
+      ),
+    ));
   }
 }
 
 Widget signUpButton(String? text, VoidCallback onTap, BuildContext context) {
-  var size = MediaQuery
-      .of(context)
-      .size
-      .width;
+  var size = MediaQuery.of(context).size.width;
 
   return InkWell(
       onTap: onTap,
@@ -93,19 +102,16 @@ Widget signUpButton(String? text, VoidCallback onTap, BuildContext context) {
               )),
           child: Center(
               child: Text(
-                text!,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: primaryColor,
-                    fontSize: size * 0.01),
-              ))));
+            text!,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: primaryColor,
+                fontSize: size * 0.01),
+          ))));
 }
 
 Widget loginButton(String? text, VoidCallback onTap, BuildContext context) {
-  var size = MediaQuery
-      .of(context)
-      .size
-      .width;
+  var size = MediaQuery.of(context).size.width;
 
   return InkWell(
       onTap: onTap,
@@ -120,10 +126,10 @@ Widget loginButton(String? text, VoidCallback onTap, BuildContext context) {
               )),
           child: Center(
               child: Text(
-                text!,
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: secondaryColor,
-                    fontSize: size * 0.01),
-              ))));
+            text!,
+            style: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: secondaryColor,
+                fontSize: size * 0.01),
+          ))));
 }

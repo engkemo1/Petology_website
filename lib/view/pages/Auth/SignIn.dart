@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 import 'package:petology_web/constants.dart';
 import 'package:petology_web/view/components/AppBar/app_bar_custom.dart';
 import 'package:petology_web/view/components/ButtonCustom.dart';
@@ -26,24 +25,21 @@ class _SignInState extends State<SignIn> {
         preferredSize: Size(screenSize.width, 80),
         child: AppBarCustom(),
       ),
-      body:
-
-      Column(
-
+      body: Column(
         children: [
           Expanded(
             flex: 4,
             child: Container(
-margin: EdgeInsets.only(top: screenSize.height*0.03),
+              margin: EdgeInsets.only(top: screenSize.height * 0.03),
               height: screenSize.height * 0.4,
               width: 450,
               child: Stack(
                 alignment: AlignmentDirectional.bottomEnd,
                 children: [
-
                   Align(
-                    alignment: Alignment(0,-1),
-                    child: SvgPicture.asset('assets/image/Dog.svg',height:192),
+                    alignment: Alignment(0, -1),
+                    child:
+                        SvgPicture.asset('assets/image/Dog.svg', height: 192),
                   ),
                   Container(
                     height: screenSize.height * 0.5,
@@ -77,7 +73,10 @@ margin: EdgeInsets.only(top: screenSize.height*0.03),
                         Container(
                           width: 400,
                           height: 50,
-                          child: ButtonCustom(title: 'Login',onTap: (){},),
+                          child: ButtonCustom(
+                            title: 'Login',
+                            onTap: () {},
+                          ),
                         ),
                         SizedBox(
                           height: 20,
@@ -97,30 +96,39 @@ margin: EdgeInsets.only(top: screenSize.height*0.03),
                         SizedBox(
                           height: 20,
                         ),
-                        SignWithFacebookGoogle(() { }, () { }),
+                        SignWithFacebookGoogle(() {}, () {}),
                         SizedBox(
                           height: 30,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Didn\'t have an account?',style: TextStyle(color: primaryColor.withOpacity(0.6),fontSize: 17,fontWeight: FontWeight.bold),),
-
-
+                            Text(
+                              'Didn\'t have an account?',
+                              style: TextStyle(
+                                  color: primaryColor.withOpacity(0.6),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
+                            ),
                             InkWell(
-                              child: Text(' sign up',style: TextStyle(color: primaryColor,fontSize: 15 ,fontWeight: FontWeight.bold  )),
+                              child: Text(' sign up',
+                                  style: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold)),
                             )
-                          ],)
-
+                          ],
+                        )
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
           Expanded(
               flex: 1,
               child: Container(
@@ -136,34 +144,31 @@ margin: EdgeInsets.only(top: screenSize.height*0.03),
     );
   }
 }
-Widget SignWithFacebookGoogle(VoidCallback onTapF ,VoidCallback onTapG ){
-  return  Row(
+
+Widget SignWithFacebookGoogle(VoidCallback onTapF, VoidCallback onTapG) {
+  return Row(
     children: [
-      SizedBox(width: 15,),
+      SizedBox(
+        width: 15,
+      ),
       SignInButton(
-
         Buttons.Facebook,
-        padding: EdgeInsets.only(left: 20,right: 20,top: 17,bottom: 17),
-
-        shape:
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),),
+        padding: EdgeInsets.only(left: 20, right: 20, top: 17, bottom: 17),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         text: "Facebook",
-
         onPressed: () {},
       ),
-
-
-      SizedBox(width: 40,),
+      SizedBox(
+        width: 40,
+      ),
       SignInButton(
-
         Buttons.Google,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
-
         ),
-        padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
-
+        padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
         text: "Google",
         onPressed: () {},
       ),
@@ -171,8 +176,8 @@ Widget SignWithFacebookGoogle(VoidCallback onTapF ,VoidCallback onTapG ){
   );
 }
 
-Widget divider(){
-  return                         Padding(
+Widget divider() {
+  return Padding(
     padding: EdgeInsets.only(left: 20, right: 20),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,13 +188,14 @@ Widget divider(){
             thickness: 2,
           ),
         ),
-        Padding(padding: EdgeInsets.only(left: 15,right: 15),child:  Text(
-          'Or',
-          style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.bold,
-              color: primaryColor),
-        ),),
+        Padding(
+          padding: EdgeInsets.only(left: 15, right: 15),
+          child: Text(
+            'Or',
+            style: TextStyle(
+                fontSize: 17, fontWeight: FontWeight.bold, color: primaryColor),
+          ),
+        ),
         Expanded(
           child: Divider(
             color: primaryColor,
@@ -199,5 +205,4 @@ Widget divider(){
       ],
     ),
   );
-
 }
