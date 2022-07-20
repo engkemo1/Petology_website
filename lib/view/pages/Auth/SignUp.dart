@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:petology_web/view/components/Drawer/drawer.dart';
 
 import '../../../constants.dart';
 import '../../components/AppBar/app_bar_custom.dart';
@@ -180,6 +181,9 @@ class SignUp extends StatelessWidget {
             ],
           )
         ],
+      ),
+      drawer: Drawer(
+        child: drawer(),
       ),
     );
   }

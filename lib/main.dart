@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:petology_web/view/pages/Auth/SignIn.dart';
 import 'package:petology_web/view/components/themes/light_theme.dart';
-import 'package:petology_web/view/pages/Auth/SignUp.dart';
+import 'package:petology_web/view/pages/home/HomeScreen.dart';
+
+import 'view/pages/Auth/SignIn.dart';
 
 
 void main() {

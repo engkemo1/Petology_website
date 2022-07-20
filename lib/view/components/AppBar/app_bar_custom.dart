@@ -53,7 +53,7 @@ class AppBarCustom extends StatelessWidget {
                   'assets/image/logo.svg',
                   width: 100,
                 ),
-                IconButton(onPressed: (){Scaffold.of(context).openDrawer();}, icon: Icon(Icons.more_vert))
+                IconButton(onPressed: (){Scaffold.of(context).openDrawer();}, icon: Icon(Icons.more_vert,color: secondaryColor,))
               ],
             ) ,desktop:   Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

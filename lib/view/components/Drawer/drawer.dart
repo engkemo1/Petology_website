@@ -23,11 +23,20 @@ class drawer extends StatelessWidget {
         ),
         SizedBox(height: 20,),
         _appBarButton('About us', () {}, context),
+        SizedBox(height: 20,),
+
         _appBarButton('Categories', () {}, context),
+        SizedBox(height: 20,),
+
         _appBarButton('Services', () {}, context),
-        _appBarButton('Request', () {}, context)
-        ,signUpButton('Sign Up', () {navigator(context,SignUp());}, context),
-        SizedBox(width: size * 0.01,),
+        SizedBox(height: 20,),
+
+        _appBarButton('Request', () {}, context),
+    SizedBox(height: 20,),
+
+    signUpButton('Sign Up', () {navigator(context,SignUp());}, context),
+    SizedBox(height: 20,),
+
         loginButton('Login', () {navigator(context,SignIn());}, context)
 
       ],
@@ -47,7 +56,7 @@ Widget _appBarButton(String title, VoidCallback onTap, BuildContext context) {
             style: GoogleFonts.getFont(
               'Lato',
               color: Color(0xffC9C9C9),
-              fontSize: size * 0.01,
+              fontSize: 25,
               fontWeight: FontWeight.normal,
               fontStyle: FontStyle.normal,
             )),
@@ -63,8 +72,8 @@ Widget signUpButton(String? text, VoidCallback onTap, BuildContext context) {
   return InkWell(
       onTap: onTap,
       child: Container(
-          height: 35,
-          width: size * 0.07,
+          height: 30,
+          width: 130,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
@@ -77,7 +86,7 @@ Widget signUpButton(String? text, VoidCallback onTap, BuildContext context) {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: primaryColor,
-                    fontSize: size * 0.01),
+                    fontSize: 15),
               ))));
 }
 
@@ -90,8 +99,8 @@ Widget loginButton(String? text, VoidCallback onTap, BuildContext context) {
   return InkWell(
       onTap: onTap,
       child: Container(
-          height: 35,
-          width: size * 0.07,
+          height: 30,
+          width: 130,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: primaryColor,
@@ -104,6 +113,6 @@ Widget loginButton(String? text, VoidCallback onTap, BuildContext context) {
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     color: secondaryColor,
-                    fontSize: size * 0.01),
+                    fontSize: 15),
               ))));
 }
