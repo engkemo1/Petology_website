@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:lottie/lottie.dart';
 import '../../constants.dart';
+import 'text_custom/text_custom.dart';
 
 Future<bool?> showToast({required String message, Color color = Colors.green}) {
   return Fluttertoast.showToast(
