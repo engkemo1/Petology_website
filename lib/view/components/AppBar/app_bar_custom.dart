@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petology_web/DogDetails.dart';
 import 'package:petology_web/view/components/responsive.dart';
+import 'package:petology_web/view/pages/Adaption.dart';
 import 'package:petology_web/view/pages/Auth/SignIn.dart';
 import 'package:petology_web/view/pages/Auth/SignUp.dart';
 
@@ -42,8 +44,18 @@ class AppBarCustom extends StatelessWidget {
 
     return SafeArea(
         child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,end:Alignment.centerRight ,
+                  colors: [
+                    primaryColor
+                    ,
+                    backgroundColor1
+                  ]
+              )
+          ),
+
           height: 90,
-          color: primaryColor,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
             child: Responsive(mobile:Row(
@@ -65,8 +77,13 @@ class AppBarCustom extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _appBarButton('About us', () {}, context),
-                    _appBarButton('Categories', () {}, context),
-                    _appBarButton('Services', () {}, context),
+                    _appBarButton('Adaption', () {
+                      navigatorAndRemove(context, Adaption());
+                    }, context),
+                    _appBarButton('Services', () {
+                      navigatorAndRemove(context, DogDetails());
+
+                    }, context),
                     _appBarButton('Request', () {}, context)
                   ],
                 ),

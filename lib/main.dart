@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:petology_web/DogDetails.dart';
 import 'package:petology_web/view/components/themes/light_theme.dart';
+import 'package:petology_web/view/pages/Adaption.dart';
 import 'package:petology_web/view/pages/home/HomeScreen.dart';
 
 import 'view/pages/Auth/SignIn.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       //Here The Theme.
       themeMode: ThemeMode.light,
       title: "Petology",
-      home: const SignIn(),
+      home:  SignIn(),
     );
   }
 }
