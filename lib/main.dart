@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:petology_web/view/pages/Auth/SignIn.dart';
 import 'package:petology_web/view/components/themes/light_theme.dart';
 import 'package:petology_web/view/pages/Auth/SignUp.dart';
+import 'package:petology_web/view/pages/adaption_screen.dart';
+import 'package:petology_web/view/pages/help_your_friend_screen.dart';
+import 'package:petology_web/view/pages/request_screen.dart';
 
 
 void main() {
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
       //Here The Theme.
       themeMode: ThemeMode.light,
       title: "Petology",
-      home: const SignUp(),
+      home: RequestScreen(),
     );
   }
 }
