@@ -6,13 +6,14 @@ class DropDownButtonText extends StatelessWidget {
   String? text;
   IconData? icon;
   double ?width;
+  VoidCallback ?callback;
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     return GestureDetector(
-      onTap: () {},
+      onTap:callback,
       child: Container(
           padding: EdgeInsets.only(left: 15, right: 15),
           width:width?? 400,
@@ -52,5 +53,6 @@ class DropDownButtonText extends StatelessWidget {
       this.text,
       this.width,
       this.icon,
+      this.callback,
   });
 }

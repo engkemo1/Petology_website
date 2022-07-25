@@ -8,11 +8,11 @@ import '../local/cache_helper.dart';
 import 'dio-helper.dart';
 import 'end_points.dart';
 
-
 class DioExceptions implements Exception {
   String? message;
 
   LoginModel? loginModel;
+
   DioExceptions.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.cancel:
@@ -26,22 +26,24 @@ class DioExceptions implements Exception {
         break;
       case DioErrorType.response:
         message = dioError.response?.data['message'];
-        if(message == 'Token expired'){
-          DioHelper.postData(url: refresh, data: {
-            'refresh_token' : userRefreshToken,
-          }).then((value) {
+        if (message == 'Token expired') {
+          DioHelper.postData(
+              url:
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsImVtYWlsIjoiYXRmQGdtYWlsLmNvbSIsImlhdCI6MTY1ODcyNzIxMiwiZXhwIjoxNjU4ODEzNjEyfQ.IgUKpfwq6kIfD6XL5jbRIKhvvfmgK6MejVhvYAVz2Fs",
+              data: {
+                'refresh_token': userRefreshToken,
+              }).then((value) {
             loginModel = LoginModel.fromJson(value.data);
             CacheHelper.put(
-                key: "accessToken",
-                value: loginModel!.data!.accessToken);
+                key: "accessToken", value: loginModel!.data!.accessToken);
             CacheHelper.put(
-                key: "refreshToken",
-                value: loginModel!.data!.refreshToken);
+                key: "refreshToken", value: loginModel!.data!.refreshToken);
             userToken = CacheHelper.get(key: "accessToken");
             userRefreshToken = CacheHelper.get(key: "refreshToken");
-          }).catchError((onError){
+          }).catchError((onError) {
             if (onError is DioError) {
-              final errorMessage = DioExceptions.fromDioError(onError).toString();
+              final errorMessage =
+                  DioExceptions.fromDioError(onError).toString();
               showToast(message: errorMessage, color: Colors.red);
             }
           });

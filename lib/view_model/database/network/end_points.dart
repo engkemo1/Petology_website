@@ -2,10 +2,10 @@
 
 // Network Connection Details
 
-const String baseUrl = 'https://dev.orangedigitalcenteregypt.com/api/v1/';
+const String baseUrl = 'https://petology.orangedigitalcenteregypt.com/';
 
 // End Points
-
+/*
 const login = 'auth/login';
 const register = 'auth/register';
 const refresh = 'auth/token';
@@ -25,3 +25,16 @@ const wishlist = 'wishlist';
 const requestUserToAuthor = 'users/me/request';
 const exam = 'exams/';
 const switchRole = 'auth/switchRole';
+*/
+
+
+/// new petology api
+///
+///
+
+const login = 'auth/login';
+const register = 'auth/register';
+const pets = 'pets';
+const petsFilter = 'pets?filter=';
+const petsFilterByCategoryID = 'pets/filters/:categoryId';
+const requestHelp = 'pets/request';
