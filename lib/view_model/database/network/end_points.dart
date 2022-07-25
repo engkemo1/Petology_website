@@ -38,3 +38,9 @@ const pets = 'pets';
 const petsFilter = 'pets?filter=';
 const petsFilterByCategoryID = 'pets/filters/:categoryId';
 const requestHelp = 'pets/request';
+const firstSection = 'static/homepage/first-section';
+const secondSection = 'static/homepage/second-section';
+const footer = 'static/homepage/footer';
+const petNeeds = 'static/homepage/pet-needs';
+const howToFeed = 'static/how-to/:catId?catId=-4860734.5080495775';
+
