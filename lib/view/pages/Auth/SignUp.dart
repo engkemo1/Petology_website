@@ -89,32 +89,32 @@ class SignUp extends StatelessWidget {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                TextFormFieldCustom(
+                                TextFormFieldCustom(validator: (value) {},
                                   title: 'First Name',
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextFormFieldCustom(
+                                TextFormFieldCustom(validator: (value) {},
                                   title: 'Last Name',
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextFormFieldCustom(
+                                TextFormFieldCustom(validator: (value) {},
                                   title: 'Email',
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                TextFormFieldCustom(
+                                TextFormFieldCustom(validator: (value) {},
                                   title: 'Password',
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
                                 TextFormFieldCustom(
-                                  title: 'Re_enter password',
+                                  title: 'Re_enter password',validator: (value) {},
                                 ),
                                 SizedBox(
                                   height: 20,

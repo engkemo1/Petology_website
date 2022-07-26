@@ -59,13 +59,13 @@ class _SignInState extends State<SignIn> {
                           height: 40,
                         ),
                         TextFormFieldCustom(
-                          title: 'Email',
+                          title: 'Email', validator: (value) {},
                         ),
                         SizedBox(
                           height: 20,
                         ),
                         TextFormFieldCustom(
-                          title: 'Password',
+                          title: 'Password', validator: (value) {},
                         ),
                         SizedBox(
                           height: 30,

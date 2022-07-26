@@ -91,6 +91,7 @@ class RequestCubit extends Cubit<RequestState> {
     Position position = await _determinePosition();
     List<Placemark> placemarks =
     await placemarkFromCoordinates(position.latitude, position.longitude);
+    print("placemarks----------------------------->${position.latitude}");
 
     Placemark place = placemarks[0];
 

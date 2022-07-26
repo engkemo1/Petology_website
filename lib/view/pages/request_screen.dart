@@ -220,13 +220,23 @@ class RequestScreen extends StatelessWidget {
                       ),
 
                       TextFormFieldCustom(
-                        title: "Phone number",
+                        title: "Phone number", validator: (value) {
+                          if (value.isEmpty) {
+                            return "Please enter your phone number";
+                          }
+                          return null;
+                        },
                       ), SizedBox(
                         height: 20,
                       ),
 
                       TextFormFieldCustom(
-                        title: "Description",
+                        title: "Description", validator: (value) {
+                          if (value.isEmpty) {
+                            return "Please enter your description";
+                          }
+                          return null;
+                        },
                       ),      SizedBox(
                         height: 20,
                       ),
